@@ -58,6 +58,7 @@ rtm.on('message', (message) => {
         console.log('비정상 입력');
     }
     status++;
+    // 10번째 대답까지 받음
     if (status === 11) {
       if (greeting_E) {
         console.log('인사 테스트 실패 - 비정상 출력 있음');
@@ -65,14 +66,12 @@ rtm.on('message', (message) => {
         console.log('인사 테스트 성공');
       } else {
         console.log('인사 테스트 실패 - 랜덤한 인삿말이 나오지 않음');
-      }
+      } // 인사 테스트 종료
+
+      rtm.sendMessage('4', test_channel);
+      status++;
+      console.log('제곱 테스트 시작');
     }
-  }
-  if (status === 1) {
-    // greeting_test(text);
-    // rtm.sendMessage('4', test_channel);
-    // status++;
-    // console.log('제곱 테스트 시작');
   } else if (status === 11) {
     square_test(text);
     // status 마지막 숫자 -> 통합 테스트 완료
