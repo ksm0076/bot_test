@@ -60,11 +60,11 @@ rtm.on('message', (message) => {
     status++;
     if (status === 11) {
       if (greeting_E) {
-        console.log('비정상 작동');
+        console.log('인사 테스트 실패 - 비정상 출력 있음');
       } else if (hello > 0 && bonj > 0 && nihao > 0) {
         console.log('인사 테스트 성공');
       } else {
-        console.log('인사 테스트 실패');
+        console.log('인사 테스트 실패 - 랜덤한 인삿말이 나오지 않음');
       }
     }
   }
