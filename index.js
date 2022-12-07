@@ -36,6 +36,7 @@ const square_test = require('./test/square_T');
 let hello = 0;
 let bonj = 0;
 let nihao = 0;
+let greeting_E = false;
 
 rtm.on('message', (message) => {
   const { text } = message;
@@ -53,11 +54,14 @@ rtm.on('message', (message) => {
         nihao++;
         break;
       default:
+        greeting_E = true;
         console.log('비정상 입력');
     }
     status++;
     if (status === 11) {
-      if (hello > 1 && bonj > 1 && nihao > 1) {
+      if (greeting_E) {
+        console.log('비정상 작동');
+      } else if (hello > 0 && bonj > 0 && nihao > 0) {
         console.log('인사 테스트 성공');
       } else {
         console.log('인사 테스트 실패');
