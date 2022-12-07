@@ -33,16 +33,43 @@ rtm.on('ready', async () => {
 const greeting_test = require('./test/greeting_T');
 const square_test = require('./test/square_T');
 
+let hello = 0;
+let bonj = 0;
+let nihao = 0;
+
 rtm.on('message', (message) => {
   const { text } = message;
-  console.log('받은 메시지 : ', text);
+  console.log(`${status} - 받은 메시지 : `, text);
 
-  if (status === 1) {
-    greeting_test(text);
-    rtm.sendMessage('4', test_channel);
+  if (status < 11) {
+    switch (text) {
+      case 'Hello!':
+        hello++;
+        break;
+      case 'Bonjur!':
+        bonj++;
+        break;
+      case 'Nihao!':
+        nihao++;
+        break;
+      default:
+        console.log('비정상 입력');
+    }
     status++;
-    console.log('제곱 테스트 시작');
-  } else if (status === 2) {
+    if (status === 11) {
+      if (hello > 1 && bonj > 1 && nihao > 1) {
+        console.log('인사 테스트 성공');
+      } else {
+        console.log('인사 테스트 실패');
+      }
+    }
+  }
+  if (status === 1) {
+    // greeting_test(text);
+    // rtm.sendMessage('4', test_channel);
+    // status++;
+    // console.log('제곱 테스트 시작');
+  } else if (status === 11) {
     square_test(text);
     // status 마지막 숫자 -> 통합 테스트 완료
     console.log('서버 종료');
