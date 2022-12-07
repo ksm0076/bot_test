@@ -36,11 +36,6 @@ rtm.on('message', (message) => {
   console.log('받은 메시지 : ', text);
 
   if (status === 1) {
-    if (text === 'Hello!') {
-      console.log('인사 테스트 통과');
-    } else {
-      console.log('인사 테스트 실패');
-    }
     rtm.sendMessage('4', test_channel);
     status++;
     console.log('제곱 테스트 시작');
