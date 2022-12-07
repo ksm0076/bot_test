@@ -30,7 +30,8 @@ rtm.on('ready', async () => {
   await rtm.sendMessage('hi', test_channel);
 });
 
-const greeting_test = require('./greeting_T');
+const greeting_test = require('./test/greeting_T');
+const square_test = require('./test/square_T');
 
 rtm.on('message', (message) => {
   const { text } = message;
@@ -42,12 +43,7 @@ rtm.on('message', (message) => {
     status++;
     console.log('제곱 테스트 시작');
   } else if (status === 2) {
-    if (text === 'The result is 16') {
-      console.log('제곱 테스트 통과');
-    } else {
-      console.log('제곱 테스트 실패');
-    }
-
+    square_test(text);
     // status 마지막 숫자 -> 통합 테스트 완료
     console.log('서버 종료');
     process.exit(1);
