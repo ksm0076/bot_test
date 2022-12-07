@@ -47,5 +47,9 @@ rtm.on('message', (message) => {
     } else {
       console.log('제곱 테스트 실패');
     }
+
+    // status 마지막 숫자 -> 통합 테스트 완료
+    console.log('서버 종료');
+    process.exit(1);
   }
 });
