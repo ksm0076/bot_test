@@ -30,14 +30,14 @@ rtm.on('ready', async () => {
   await rtm.sendMessage('hi', test_channel);
 });
 
-const greeting_test = require('./greeting_test');
+const greeting_test = require('./greeting_T');
 
 rtm.on('message', (message) => {
   const { text } = message;
-  greeting_test(text);
   console.log('받은 메시지 : ', text);
 
   if (status === 1) {
+    greeting_test(text);
     rtm.sendMessage('4', test_channel);
     status++;
     console.log('제곱 테스트 시작');
