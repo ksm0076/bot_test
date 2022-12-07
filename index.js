@@ -69,7 +69,6 @@ rtm.on('message', (message) => {
       } // 인사 테스트 종료
 
       rtm.sendMessage('4', test_channel);
-      status++;
       console.log('제곱 테스트 시작');
     }
   } else if (status === 11) {
