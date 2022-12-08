@@ -66,13 +66,15 @@ rtm.on('message', (message) => {
       rtm.sendMessage('4', test_channel);
       console.log('-제곱 테스트 시작');
     }
-  } else if (status++ === 11) { // 제곱 테스트
+  } else if (status === 11) { // 제곱 테스트
     square_test(text);
 
     rtm.sendMessage('학사일정', test_channel);
     console.log('-학사안내 테스트 시작');
-  } else if (status++ === 12) {
+    status++;
+  } else if (status === 12) {
     rtm.sendMessage('8/4', test_channel);
+    status++;
   } else if (status === 13) {
     schedule_test(text, status);
     // status 마지막 숫자 -> 통합 테스트 완료
