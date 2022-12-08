@@ -61,17 +61,17 @@ rtm.on('message', (message) => {
     // 10번째 대답까지 받음
     if (status === 11) {
       if (greeting_E) {
-        console.log('인사 테스트 실패 - 비정상 출력 있음');
+        console.log('---인사 테스트 실패 - 비정상 출력 있음');
       } else if (hello > 0 && bonj > 0 && nihao > 0) {
-        console.log('인사 테스트 성공');
+        console.log('---인사 테스트 성공');
       } else {
-        console.log('인사 테스트 실패 - 랜덤한 인삿말이 나오지 않음');
+        console.log('---인사 테스트 실패 - 랜덤한 인삿말이 나오지 않음');
       } // 인사 테스트 종료
 
       rtm.sendMessage('4', test_channel);
       console.log('제곱 테스트 시작');
     }
-  } else if (status === 11) {
+  } else if (status === 11) { // 제곱 테스트
     square_test(text);
     // status 마지막 숫자 -> 통합 테스트 완료
     console.log('서버 종료');
