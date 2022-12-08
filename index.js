@@ -32,6 +32,7 @@ rtm.on('ready', async () => {
 
 const greeting_test = require('./test/greeting_T');
 const square_test = require('./test/square_T');
+const schedule_test = require('./test/schedule_T');
 
 let hello = 0;
 let bonj = 0;
@@ -73,6 +74,7 @@ rtm.on('message', (message) => {
   } else if (status++ === 12) {
     rtm.sendMessage('8/4', test_channel);
   } else if (status === 13) {
+    schedule_test(text, status);
     // status 마지막 숫자 -> 통합 테스트 완료
     console.log('테스트 봇 종료');
     process.exit(1);
