@@ -123,7 +123,18 @@ rtm.on('message', (message) => {
     deptState++;
   } else if (deptState === 4) {
     dept_test(text, deptState);
-    deptState++; // 학과사무실 테스트 종료
+
+    rtm.sendMessage('학과사무실안내', test_channel);
+    console.log('보낸 메시지 : 학과사무실안내');
+    deptState++;
+  } else if (deptState === 5) {
+    rtm.sendMessage('Camputer science and Engineering', test_channel);
+    console.log('보낸 메시지 : Camputer science and Engineering');
+
+    deptState++;
+  } else if (deptState === 6) {
+    dept_test(text, deptState);
+    // 학과사무실 테스트 종료
     // 마지막, 통합 테스트 완료
     console.log('테스트 봇 종료');
     process.exit(1);
