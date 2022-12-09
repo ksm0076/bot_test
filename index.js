@@ -78,6 +78,7 @@ rtm.on('message', (message) => {
     status++;
   } else if (status === 13) {
     schedule_test(text, status);
+
     rtm.sendMessage('학과사무실안내', test_channel);
     status++;
   } else if (status === 14) {

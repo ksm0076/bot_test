@@ -2,20 +2,20 @@ const deptInfo = require('./deptInfo');
 
 function dept_test(text, status) {
   switch (status) {
-    case 13:
-      if (text === `${scheduleInfo['8/4']}`) {
-        console.log('--8/4 학사안내 테스트 통과');
+    case 15:
+      if (text === `${deptInfo['Mechanical Engineering']}`) {
+        console.log('--Mechanical Engineering 과사무실 테스트 통과');
       } else {
-        console.log('--8/4 학사안내 테스트 실패');
+        console.log('--Mechanical Engineering 과사무실 테스트 실패');
       }
       break;
-    case 14:
-      if (text === `${scheduleInfo['11/4']}`) {
-        console.log('--11/4 학사안내 테스트 통과');
-      } else {
-        console.log('--11/4 학사안내 테스트 실패');
-      }
-      break;
+    // case 16:
+    //   if (text === `${deptInfo['11/4']}`) {
+    //     console.log('--11/4 학사안내 테스트 통과');
+    //   } else {
+    //     console.log('--11/4 학사안내 테스트 실패');
+    //   }
+    //   break;
     default:
       console.log('---학사안내 테스트 오류');
   }
