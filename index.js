@@ -23,7 +23,6 @@ const rtm = new RTMClient(token);
 rtm.start();
 
 rtm.on('ready', async () => {
-//  const rdy1 = await rtm.sendMessage("테스트 시작", test_channel);
   console.log('-테스트 루틴 시작');
   status++;
 
@@ -39,12 +38,16 @@ let hello = 0;
 let bonj = 0;
 let nihao = 0;
 let greeting_E = false;
+let greetingState = 0;
+let squareState = 0;
+let scheduleState = 0;
+let deptState = 0;
 
 rtm.on('message', (message) => {
   const { text } = message;
   console.log(`${status} - 받은 메시지 : `, text);
 
-  if (status < 11) {
+  if (greetingState < 11) {
     switch (text) {
       case 'Hello!':
         hello++;
@@ -59,50 +62,54 @@ rtm.on('message', (message) => {
         greeting_E = true;
         console.log('비정상 입력');
     }
-    status++;
+    greetingState++;
     // 10번째 대답까지 받음
-    if (status === 11) {
+    if (greetingState === 11) {
       greeting_test(greeting_E, hello, bonj, nihao);
+      greetingState = 0; // 인사 테스트 종료
 
       rtm.sendMessage('4', test_channel);
       console.log('-제곱 테스트 시작');
+      squareState = 1;
     }
-  } else if (status === 11) { // 제곱 테스트
+  } else if (squareState === 1) { // 제곱 테스트
     square_test(text);
+    squareState = 0; // 제곱 테스트 종료
 
     rtm.sendMessage('학사일정', test_channel);
     console.log('-학사안내 테스트 시작');
-    status++;
-  } else if (status === 12) {
+    scheduleState++;
+  } else if (scheduleState === 1) {
     rtm.sendMessage('8/4', test_channel);
-    status++;
-  } else if (status === 13) {
+    scheduleState++;
+  } else if (scheduleState === 2) {
     schedule_test(text, status);
 
     rtm.sendMessage('학사일정', test_channel);
-    status++;
-  } else if (status === 14) {
+    scheduleState++;
+  } else if (scheduleState === 3) {
     rtm.sendMessage('10/15', test_channel);
-    status++;
-  } else if (status === 15) {
+    scheduleState++;
+  } else if (scheduleState === 4) {
     schedule_test(text, status);
+    scheduleState = 0; // 학사일정 텍스트 종료
 
     rtm.sendMessage('학과사무실안내', test_channel);
-    status++;
-  } else if (status === 16) {
+    deptState++;
+  } else if (deptState === 1) {
     rtm.sendMessage('Mechanical Engineering', test_channel);
-    status++;
-  } else if (status === 17) {
+    deptState++;
+  } else if (deptState === 2) {
     dept_test(text, status);
 
     rtm.sendMessage('학과사무실안내', test_channel);
-    status++;
-  } else if (status === 18) {
+    deptState++;
+  } else if (deptState === 3) {
     rtm.sendMessage('mechanicalengineering', test_channel);
-    status++;
-  } else if (status === 19) {
+    deptState++;
+  } else if (deptState === 4) {
     dept_test(text, status);
-
+    deptState = 0; // 학과사무실 테스트 종료
     // status 마지막 숫자 -> 통합 테스트 완료
     console.log('테스트 봇 종료');
     process.exit(1);
