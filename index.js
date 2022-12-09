@@ -79,12 +79,20 @@ rtm.on('message', (message) => {
   } else if (status === 13) {
     schedule_test(text, status);
 
-    rtm.sendMessage('학과사무실안내', test_channel);
+    rtm.sendMessage('학사일정', test_channel);
     status++;
   } else if (status === 14) {
-    rtm.sendMessage('Mechanical Engineering', test_channel);
+    rtm.sendMessage('10/15', test_channel);
     status++;
   } else if (status === 15) {
+    schedule_test(text, status);
+
+    rtm.sendMessage('학과사무실안내', test_channel);
+    status++;
+  } else if (status === 16) {
+    rtm.sendMessage('Mechanical Engineering', test_channel);
+    status++;
+  } else if (status === 17) {
     dept_test(text, status);
     // status 마지막 숫자 -> 통합 테스트 완료
     console.log('테스트 봇 종료');
