@@ -4,8 +4,6 @@ const { RTMClient } = require('@slack/rtm-api');
 
 const fs = require('fs');
 
-let status = 0;
-
 let token;
 
 try {
@@ -24,7 +22,6 @@ rtm.start();
 
 rtm.on('ready', async () => {
   console.log('-테스트 루틴 시작');
-  status++;
 
   await rtm.sendMessage('hi', test_channel);
 });
