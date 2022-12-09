@@ -1,6 +1,6 @@
-const scheduleInfo = require('./scheduleInfo');
+const deptInfo = require('./deptInfo');
 
-function schedule_test(text, status) {
+function dept_test(text, status) {
   switch (status) {
     case 13:
       if (text === `${scheduleInfo['8/4']}`) {
@@ -21,4 +21,4 @@ function schedule_test(text, status) {
   }
 }
 
-module.exports = schedule_test;
+module.exports = dept_test;

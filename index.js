@@ -33,6 +33,7 @@ rtm.on('ready', async () => {
 const greeting_test = require('./test/greeting_T');
 const square_test = require('./test/square_T');
 const schedule_test = require('./test/schedule_T');
+const dept_test = require('./test/dept_T');
 
 let hello = 0;
 let bonj = 0;
@@ -77,6 +78,13 @@ rtm.on('message', (message) => {
     status++;
   } else if (status === 13) {
     schedule_test(text, status);
+    rtm.sendMessage('학과사무실안내', test_channel);
+    status++;
+  } else if (status === 14) {
+    rtm.sendMessage('Mechanical Engineering', test_channel);
+    status++;
+  } else if (status === 15) {
+    dept_test(text, status);
     // status 마지막 숫자 -> 통합 테스트 완료
     console.log('테스트 봇 종료');
     process.exit(1);
