@@ -85,7 +85,7 @@ rtm.on('message', (message) => {
     rtm.sendMessage('8/4', test_channel);
     scheduleState++;
   } else if (scheduleState === 2) {
-    schedule_test(text, status);
+    schedule_test(text, scheduleState);
 
     rtm.sendMessage('학사일정', test_channel);
     scheduleState++;
@@ -93,7 +93,7 @@ rtm.on('message', (message) => {
     rtm.sendMessage('10/15', test_channel);
     scheduleState++;
   } else if (scheduleState === 4) {
-    schedule_test(text, status);
+    schedule_test(text, scheduleState);
     scheduleState++; // 학사일정 텍스트 종료
 
     rtm.sendMessage('학과사무실안내', test_channel);
@@ -102,7 +102,7 @@ rtm.on('message', (message) => {
     rtm.sendMessage('Mechanical Engineering', test_channel);
     deptState++;
   } else if (deptState === 2) {
-    dept_test(text, status);
+    dept_test(text, deptState);
 
     rtm.sendMessage('학과사무실안내', test_channel);
     deptState++;
@@ -110,7 +110,7 @@ rtm.on('message', (message) => {
     rtm.sendMessage('mechanicalengineering', test_channel);
     deptState++;
   } else if (deptState === 4) {
-    dept_test(text, status);
+    dept_test(text, deptState);
     deptState++; // 학과사무실 테스트 종료
     // 마지막, 통합 테스트 완료
     console.log('테스트 봇 종료');
