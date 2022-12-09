@@ -58,7 +58,7 @@ rtm.on('message', (message) => {
         break;
       default:
         greeting_E = true;
-        console.log('비정상 입력');
+        console.log('★★★★★★비정상 인사말 들어옴');
     }
     greetingState++;
     // 10번째 대답까지 받음
@@ -67,44 +67,59 @@ rtm.on('message', (message) => {
       // 인사 테스트 종료
       greetingState++;
 
-      rtm.sendMessage('4', test_channel);
       console.log('-제곱 테스트 시작');
+      rtm.sendMessage('4', test_channel);
+      console.log('보낸 메시지 : 4');
+
       squareState = 1;
     }
   } else if (squareState === 1) { // 제곱 테스트
     square_test(text);
-    squareState = 0; // 제곱 테스트 종료
+    squareState++; // 제곱 테스트 종료
 
-    rtm.sendMessage('학사일정', test_channel);
     console.log('-학사안내 테스트 시작');
+    rtm.sendMessage('학사일정', test_channel);
+    console.log('보낸 메시지 : 학사일정');
+
     scheduleState++;
   } else if (scheduleState === 1) {
     rtm.sendMessage('8/4', test_channel);
+    console.log('보낸 메시지 : 8/4');
     scheduleState++;
   } else if (scheduleState === 2) {
     schedule_test(text, scheduleState);
 
     rtm.sendMessage('학사일정', test_channel);
+    console.log('보낸 메시지 : 학사일정');
     scheduleState++;
   } else if (scheduleState === 3) {
     rtm.sendMessage('10/15', test_channel);
+    console.log('보낸 메시지 : 10/15');
     scheduleState++;
   } else if (scheduleState === 4) {
     schedule_test(text, scheduleState);
     scheduleState++; // 학사일정 텍스트 종료
 
     rtm.sendMessage('학과사무실안내', test_channel);
+    console.log('보낸 메시지 : 학과사무실안내');
+
     deptState++;
   } else if (deptState === 1) {
     rtm.sendMessage('Mechanical Engineering', test_channel);
+    console.log('보낸 메시지 : Mechanical Engineering');
+
     deptState++;
   } else if (deptState === 2) {
     dept_test(text, deptState);
 
     rtm.sendMessage('학과사무실안내', test_channel);
+    console.log('보낸 메시지 : 학과사무실안내');
+
     deptState++;
   } else if (deptState === 3) {
     rtm.sendMessage('mechanicalengineering', test_channel);
+    console.log('보낸 메시지 : mechanicalengineering');
+
     deptState++;
   } else if (deptState === 4) {
     dept_test(text, deptState);
