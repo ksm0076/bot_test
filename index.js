@@ -38,16 +38,17 @@ let hello = 0;
 let bonj = 0;
 let nihao = 0;
 let greeting_E = false;
-let greetingState = 0;
+let greetingState = 1;
 let squareState = 0;
 let scheduleState = 0;
 let deptState = 0;
 
 rtm.on('message', (message) => {
   const { text } = message;
-  console.log(`${status} - 받은 메시지 : `, text);
+  console.log('받은 메시지 : ', text);
 
   if (greetingState < 11) {
+    console.log(`${greetingState} - 받은 메시지 : `, text);
     switch (text) {
       case 'Hello!':
         hello++;
@@ -66,7 +67,8 @@ rtm.on('message', (message) => {
     // 10번째 대답까지 받음
     if (greetingState === 11) {
       greeting_test(greeting_E, hello, bonj, nihao);
-      greetingState = 0; // 인사 테스트 종료
+      // 인사 테스트 종료
+      greetingState++;
 
       rtm.sendMessage('4', test_channel);
       console.log('-제곱 테스트 시작');
@@ -92,7 +94,7 @@ rtm.on('message', (message) => {
     scheduleState++;
   } else if (scheduleState === 4) {
     schedule_test(text, status);
-    scheduleState = 0; // 학사일정 텍스트 종료
+    scheduleState++; // 학사일정 텍스트 종료
 
     rtm.sendMessage('학과사무실안내', test_channel);
     deptState++;
@@ -109,8 +111,8 @@ rtm.on('message', (message) => {
     deptState++;
   } else if (deptState === 4) {
     dept_test(text, status);
-    deptState = 0; // 학과사무실 테스트 종료
-    // status 마지막 숫자 -> 통합 테스트 완료
+    deptState++; // 학과사무실 테스트 종료
+    // 마지막, 통합 테스트 완료
     console.log('테스트 봇 종료');
     process.exit(1);
   }
