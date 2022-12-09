@@ -94,6 +94,15 @@ rtm.on('message', (message) => {
     status++;
   } else if (status === 17) {
     dept_test(text, status);
+
+    rtm.sendMessage('학과사무실안내', test_channel);
+    status++;
+  } else if (status === 18) {
+    rtm.sendMessage('mechanicalengineering', test_channel);
+    status++;
+  } else if (status === 19) {
+    dept_test(text, status);
+
     // status 마지막 숫자 -> 통합 테스트 완료
     console.log('테스트 봇 종료');
     process.exit(1);
