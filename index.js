@@ -22,7 +22,7 @@ const rtm = new RTMClient(token);
 rtm.start();
 
 rtm.on('ready', async () => {
-  console.log('-테스트 루틴 시작');
+  console.log('----------테스트 루틴 시작----------');
 
   await rtm.sendMessage('hi', test_channel);
 });
@@ -68,7 +68,7 @@ rtm.on('message', (message) => {
       // 인사 테스트 종료
       greetingState++;
 
-      console.log('-제곱 테스트 시작');
+      console.log('----------제곱 테스트 시작----------');
       rtm.sendMessage('4', test_channel);
       console.log('보낸 메세지 : 4');
 
@@ -77,8 +77,8 @@ rtm.on('message', (message) => {
   } else if (squareState === 1) { // 제곱 테스트
     square_test(text);
     squareState++; // 제곱 테스트 종료
-
-    console.log('-학사안내 테스트 시작');
+    console.log('----------제곱 테스트 종료----------');
+    console.log('----------학사안내 테스트 시작----------');
     rtm.sendMessage('학사일정', test_channel);
     console.log('보낸 메세지 : 학사일정');
 
@@ -99,8 +99,9 @@ rtm.on('message', (message) => {
     scheduleState++;
   } else if (scheduleState === 4) {
     schedule_test(text, scheduleState);
-    scheduleState++; // 학사일정 텍스트 종료
-
+    scheduleState++; // 학사일정 테스트 종료
+    console.log('----------학사안내 테스트 종료----------');
+    console.log('----------학사과사무실 테스트 시작----------');
     rtm.sendMessage('학과사무실안내', test_channel);
     console.log('보낸 메세지 : 학과사무실안내');
 
@@ -135,6 +136,7 @@ rtm.on('message', (message) => {
     deptState++;
   } else if (deptState === 6) {
     dept_test(text, deptState);
+    console.log('----------학사과사무실 테스트 종료----------');
     // 학과사무실 테스트 종료
     // 마지막, 통합 테스트 완료
     console.log('테스트 봇 종료');
