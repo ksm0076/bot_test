@@ -93,8 +93,8 @@ rtm.on('message', (message) => {
     console.log('보낸 메시지 : 학사일정');
     scheduleState++;
   } else if (scheduleState === 3) {
-    rtm.sendMessage('10/15', test_channel);
-    console.log('보낸 메시지 : 10/15');
+    rtm.sendMessage('3/4', test_channel);
+    console.log('보낸 메시지 : 3/4');
     scheduleState++;
   } else if (scheduleState === 4) {
     schedule_test(text, scheduleState);
