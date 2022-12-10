@@ -13,8 +13,8 @@ try {
 }
 
 token = token.trim();
+// 테스트 채널 할 ID
 const test_channel = 'C04BKTRD9V0';
-// const test_ID = 'U0472FJCEDV';
 
 const rtm = new RTMClient(token);
 
