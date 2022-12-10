@@ -23,6 +23,7 @@ rtm.start();
 
 rtm.on('ready', async () => {
   console.log('----------테스트 루틴 시작----------');
+  console.log('----------인사 테스트 시작----------');
 
   await rtm.sendMessage('hi', test_channel);
 });
@@ -67,7 +68,7 @@ rtm.on('message', (message) => {
       greeting_test(greeting_E, hello, bonj, nihao);
       // 인사 테스트 종료
       greetingState++;
-
+      console.log('----------인사 테스트 종료----------');
       console.log('----------제곱 테스트 시작----------');
       rtm.sendMessage('4', test_channel);
       console.log('보낸 메세지 : 4');
