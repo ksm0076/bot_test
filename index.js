@@ -14,7 +14,8 @@ try {
 
 token = token.trim();
 // 테스트 채널 할 ID
-const test_channel = 'C04BKTRD9V0';
+// const test_channel = 'C04BKTRD9V0'; // 테스트 채널
+const test_channel = 'C04C3R6M34H'; // 테스트 시연 채널
 
 const rtm = new RTMClient(token);
 
