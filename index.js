@@ -13,8 +13,8 @@ try {
 }
 
 token = token.trim();
+// 테스트 채널 할 ID
 const test_channel = 'C04BKTRD9V0';
-// const test_ID = 'U0472FJCEDV';
 
 const rtm = new RTMClient(token);
 
@@ -42,10 +42,10 @@ let deptState = 0;
 
 rtm.on('message', (message) => {
   const { text } = message;
-  console.log('받은 메시지 : ', text);
+  console.log('받은 메세지 : ', text);
 
   if (greetingState < 11) {
-    console.log(`${greetingState} - 받은 메시지 : `, text);
+    console.log(`${greetingState} - 받은 메세지 : `, text);
     switch (text) {
       case 'Hello!':
         hello++;
@@ -69,7 +69,7 @@ rtm.on('message', (message) => {
 
       console.log('-제곱 테스트 시작');
       rtm.sendMessage('4', test_channel);
-      console.log('보낸 메시지 : 4');
+      console.log('보낸 메세지 : 4');
 
       squareState = 1;
     }
@@ -79,57 +79,57 @@ rtm.on('message', (message) => {
 
     console.log('-학사안내 테스트 시작');
     rtm.sendMessage('학사일정', test_channel);
-    console.log('보낸 메시지 : 학사일정');
+    console.log('보낸 메세지 : 학사일정');
 
     scheduleState++;
   } else if (scheduleState === 1) {
     rtm.sendMessage('8/4', test_channel);
-    console.log('보낸 메시지 : 8/4');
+    console.log('보낸 메세지 : 8/4');
     scheduleState++;
   } else if (scheduleState === 2) {
     schedule_test(text, scheduleState);
 
     rtm.sendMessage('학사일정', test_channel);
-    console.log('보낸 메시지 : 학사일정');
+    console.log('보낸 메세지 : 학사일정');
     scheduleState++;
   } else if (scheduleState === 3) {
-    rtm.sendMessage('10/15', test_channel);
-    console.log('보낸 메시지 : 10/15');
+    rtm.sendMessage('3/4', test_channel);
+    console.log('보낸 메세지 : 3/4');
     scheduleState++;
   } else if (scheduleState === 4) {
     schedule_test(text, scheduleState);
     scheduleState++; // 학사일정 텍스트 종료
 
     rtm.sendMessage('학과사무실안내', test_channel);
-    console.log('보낸 메시지 : 학과사무실안내');
+    console.log('보낸 메세지 : 학과사무실안내');
 
     deptState++;
   } else if (deptState === 1) {
     rtm.sendMessage('Mechanical Engineering', test_channel);
-    console.log('보낸 메시지 : Mechanical Engineering');
+    console.log('보낸 메세지 : Mechanical Engineering');
 
     deptState++;
   } else if (deptState === 2) {
     dept_test(text, deptState);
 
     rtm.sendMessage('학과사무실안내', test_channel);
-    console.log('보낸 메시지 : 학과사무실안내');
+    console.log('보낸 메세지 : 학과사무실안내');
 
     deptState++;
   } else if (deptState === 3) {
     rtm.sendMessage('mechanicalengineering', test_channel);
-    console.log('보낸 메시지 : mechanicalengineering');
+    console.log('보낸 메세지 : mechanicalengineering');
 
     deptState++;
   } else if (deptState === 4) {
     dept_test(text, deptState);
 
     rtm.sendMessage('학과사무실안내', test_channel);
-    console.log('보낸 메시지 : 학과사무실안내');
+    console.log('보낸 메세지 : 학과사무실안내');
     deptState++;
   } else if (deptState === 5) {
     rtm.sendMessage('Camputer science and Engineering', test_channel);
-    console.log('보낸 메시지 : Camputer science and Engineering');
+    console.log('보낸 메세지 : Camputer science and Engineering');
 
     deptState++;
   } else if (deptState === 6) {

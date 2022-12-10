@@ -10,10 +10,10 @@ function schedule_test(text, status) {
       }
       break;
     case 4:
-      if (text === `${scheduleInfo['10/15']}`) {
-        console.log('---10/15 학사안내 테스트 통과');
+      if (text === '일정이 없거나 잘못된 입력입니다.') {
+        console.log('---3/4 학사안내 잘못된 입력 테스트 통과');
       } else {
-        console.log('★★★★★★ 10/15 학사안내 테스트 실패');
+        console.log('★★★★★★ 3/4 학사안내 테스트 실패');
       }
       break;
     default:
