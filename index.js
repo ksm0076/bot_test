@@ -141,6 +141,7 @@ rtm.on('message', (message) => {
     rtm.sendMessage('밥', test_channel);
     rtm.sendMessage('이번주뭐나와', test_channel);
     // 학과사무실 테스트 종료
+  } else {
     // 마지막, 통합 테스트 완료
     console.log('테스트 봇 종료');
     process.exit(1);
