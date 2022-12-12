@@ -146,7 +146,7 @@ rtm.on('message', (message) => {
   } else if (menuState === 1) {
     menuState++;
   } else if (menuState === 2) {
-    rtm.sendMessage('이번주메뉴뭐야');
+    rtm.sendMessage('이번주메뉴뭐야', test_channel);
     menuState++;
     weekState++;
     // 마지막, 통합 테스트 완료
