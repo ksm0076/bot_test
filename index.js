@@ -41,6 +41,8 @@ let greetingState = 1;
 let squareState = 0;
 let scheduleState = 0;
 let deptState = 0;
+let menuState = 0;
+let weekState = 0;
 
 rtm.on('message', (message) => {
   const { text } = message;
@@ -138,10 +140,14 @@ rtm.on('message', (message) => {
   } else if (deptState === 6) {
     dept_test(text, deptState);
     console.log('----------학사과사무실 테스트 종료----------');
+    deptState++;
     rtm.sendMessage('밥', test_channel);
-    rtm.sendMessage('이번주뭐나와', test_channel);
-    // 학과사무실 테스트 종료
-  } else {
+    menuState++;
+  } else if (menuState === 1) {
+    rtm.sendMessage('이번주메뉴뭐야');
+    menuState++;
+    weekState++;
+  } else if (weekState === 1) {
     // 마지막, 통합 테스트 완료
     console.log('테스트 봇 종료');
     process.exit(1);
