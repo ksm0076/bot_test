@@ -138,6 +138,8 @@ rtm.on('message', (message) => {
   } else if (deptState === 6) {
     dept_test(text, deptState);
     console.log('----------학사과사무실 테스트 종료----------');
+    rtm.sendMessage('밥', test_channel);
+    rtm.sendMessage('이번주뭐나와', test_channel);
     // 학과사무실 테스트 종료
     // 마지막, 통합 테스트 완료
     console.log('테스트 봇 종료');
