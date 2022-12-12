@@ -144,10 +144,11 @@ rtm.on('message', (message) => {
     rtm.sendMessage('밥', test_channel);
     menuState++;
   } else if (menuState === 1) {
+    menuState++;
+  } else if (menuState === 2) {
     rtm.sendMessage('이번주메뉴뭐야');
     menuState++;
     weekState++;
-  } else if (weekState === 1) {
     // 마지막, 통합 테스트 완료
     console.log('테스트 봇 종료');
     process.exit(1);
