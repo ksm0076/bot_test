@@ -14,8 +14,8 @@ try {
 
 token = token.trim();
 // 테스트 채널 할 ID
-const test_channel = 'C04BKTRD9V0'; // 테스트 채널
-// const test_channel = 'C04C3R6M34H'; // 테스트 시연 채널
+// const test_channel = 'C04BKTRD9V0'; // 테스트 채널
+const test_channel = 'C04C3R6M34H'; // 테스트 시연 채널
 
 const rtm = new RTMClient(token);
 
@@ -42,7 +42,6 @@ let squareState = 0;
 let scheduleState = 0;
 let deptState = 0;
 let menuState = 0;
-let weekState = 0;
 
 rtm.on('message', (message) => {
   const { text } = message;
@@ -148,7 +147,6 @@ rtm.on('message', (message) => {
   } else if (menuState === 2) {
     rtm.sendMessage('이번주메뉴뭐야', test_channel);
     menuState++;
-    weekState++;
     // 마지막, 통합 테스트 완료
     console.log('테스트 봇 종료');
     process.exit(1);
